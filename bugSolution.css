@@ -1,0 +1,14 @@
+To resolve the issue, avoid combining `@apply` with other CSS within the same class.  Instead, create separate classes to manage styles independently.  For instance, refactor the problematic class like this:
+
+```css
+.bg-padding {
+  @apply bg-blue-500;
+}
+
+.my-class {
+  @apply bg-padding;
+  padding: 1rem;
+}
+```
+
+This approach ensures that `@apply` is processed correctly without interfering with other style rules. Alternatively, you could move the `padding` to a separate class that is combined with `@apply`.
