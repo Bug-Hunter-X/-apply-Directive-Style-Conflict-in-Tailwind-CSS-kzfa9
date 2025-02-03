@@ -1,0 +1,10 @@
+This error occurs when using Tailwind CSS with the `@apply` directive inside a class that's also using other Tailwind directives or custom styles.  The issue stems from the order of operations: Tailwind processes `@apply` directives *after* processing the rest of the class's styles. This can lead to unexpected results or overwriting of styles. For example, if you have a class like this:
+
+```css
+.my-class {
+  @apply bg-blue-500;
+  padding: 1rem;
+}
+```
+
+The `padding` rule will likely be overridden or not applied as expected depending on Tailwind's internal processing.  You might see the background color, but the padding will be missing.
